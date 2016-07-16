@@ -87,6 +87,22 @@ hist(EFW.pp$timediff,
      main=NA,
      labels=TRUE)
 
+EFW.pre$ClassTime <- NA
+EFW.pre$ClassTime <- ifelse(EFW.pre$X19<=10, 1, EFW.pre$ClassTime)
+EFW.pre$ClassTime <- ifelse(EFW.pre$X19>10 & EFW.pre$X19<=20, 2, EFW.pre$ClassTime)
+EFW.pre$ClassTime <- ifelse(EFW.pre$X19>20, 3, EFW.pre$ClassTime)
+
+table(EFW.pre$ClassTime)/sum(table(EFW.pre$ClassTime))
+
+bar <- barplot(table(EFW.pre$ClassTime), 
+               ylab="Frequency", ylim=c(0,30),
+               names.arg=c("Low", "Medium", "High"),
+               cex.names=0.8, cex.axis=0.8)
+text(x = bar, 
+     y = table(EFW.pre$ClassTime), 
+     label = table(EFW.pre$ClassTime), 
+     pos = 3, cex = 0.8, col = "black")
+
 
 # Histogram of years of teaching experience
 hist(EFW.pre$X19, 

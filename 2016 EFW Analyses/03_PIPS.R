@@ -1,4 +1,4 @@
-setwd("~/Dropbox/EFW Analyses/Analyses")
+setwd("~/Dropbox/NFW-EFW Analyses/NFW-EFW/2016 EFW Analyses")
 source("00_CleanData.R")
 
 #---------------------------------------------------------------------------
@@ -9,8 +9,8 @@ source("00_CleanData.R")
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Cronbach's Alpha 
-descript(EFW[, c(52, 54, 56:60, 62:66, 68:70)])  # student-centered
-descript(EFW[, c(51, 53, 55, 61, 67, 71:74)])  # instructor-centered
+descript(NFW[, c(47, 49, 51:60, 62:66, 68:70)])  # student-centered
+descript(NFW[, c(46, 48, 50, 61, 67, 71:74)])  # instructor-centered
 
 # Convert any NAs to Os
 EFW[,c(51:74)][is.na(EFW[,c(51:74)])] <- 0
